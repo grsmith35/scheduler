@@ -1,8 +1,19 @@
-var currentTime = moment();
+var currentTime = moment().format("MMMM Do YYYY");
 var containerArea = document.querySelector("#container-area");
+var dateContainerEl = document.querySelector("#currentDay");
 
-var changeEvent = function(event) {
-    event.target
-};
+dateContainerEl.textContent = currentTime;
 
-containerArea.addEventListener("click", changeEvent)
+$(".container-area").on("click", function(){
+    console.log("here");
+    var text = $(this)
+        .text()
+        .trim();
+    console.log(text);
+    var textInput = $("<textarea>")
+        .val(text);
+
+    $(this).replaceWith(textInput);
+})
+
+//containerArea.addEventListener("click", changeEvent)
